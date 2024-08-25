@@ -1,12 +1,8 @@
 .dockerignore
 .gitattributes
-runs/train/exp5
-runs/train/exp6
 runs/train/exp7
 runs/train/exp8
 runs/train/exp9
-runs/detect/exp5
-runs/detect/exp6
 runs/detect/exp7
 runs/detect/exp8
 runs/detect/exp9
