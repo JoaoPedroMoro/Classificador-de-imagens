@@ -12,3 +12,29 @@ De começo, existem duas classes para serem classificadas: 0 - dog e 1 - cat.
 Dando continuidade ao projeto realizado anterior, é necessário entender que o classificador teve um problema relacionado a classificação errada das duas classes. Uma taxa de confiabilidade alta retornava pouquíssimas classificações e uma taxa de confiança baixa retornava classificações incorretas. Diante disso, vou separar a fase 1 em duas partes: a classificação de mais imagens e vídeos para a classe gato e para a classe cachorro.
 
 Para isso, foi criado os datasets test_gato e train_gato, localizados na pasta "Parte 1" dos dados.
+
+Foram rodados 6 treinamentos (experimentos) iniciais, onde eram conjuntos de 3 épocas (número de iterações de treinamento) para 2 batch sizes (número de amostras processadas em uma iteração) diferentes, 16 e 32, com 50 épocas, 100 épocas e 200 épocas. O limiar de confiança para a classificação de cada um desses treinamentos foi 0.4. O comando para tal classificação é: 
+
+```!python detect.py --weights /content/yolov5/runs/train/exp/weights/best.pt --img 640 --conf 0.40 --source /content/data_test/ --data /content/yolov5/data/custom_data.yaml --save-txt --save-conf```
+
+onde o parâmetros --weights indica qual treinamento utilizar, --img a proporção das imagens, --conf o nível de confiança, --data qual arquivo .yaml de dados usar, --save-txt e --save-conf para salvar as projeções .txt da classificação das imagens e o limiar de confiança.
+
+Estes experimentos podem ser encontrados no diretório yolov5/runs/detect e vão ter de exp até exp5, indicando qual classificação foi. O treinamento exp resultou na detecção exp, o exp2 na exp2 e por ai vai.
+
+Para visualização e análise dos resultados dessas 6 runs, experimentos, onde a run 1 é o exp, a run 2 é o exp2, até a run 6 que é o exp6, foi observado todas as saídas e construído uma tabela. As classificações corretas (C C) são aquelas em que a área demarcada do gato é aceitável, as classificações incorretas (C I) são aquelas em que ou não encontrou gato, ou o número de gatos encontrados não é correto, podendo ter o algoritmo classificado mais ou menos gatos do que há na imagem, e as classificações desproporcionais (C D) são aquelas em que é correto o número de gatos classificados mas a área demarcada de classificação está incorreta, muitas vezes classificando apenas o rosto e ignorando o corpo do gato.
+
+| Run | C C | C I | C D |
+| --- | --- | --- | --- |
+|  1  | 27 | 20 | 14 |
+|  2  | 26 | 28 | 7 |
+|  3  | 35 | 6 | 20 |
+|  4  | 32 | 12 | 17 |
+|  5  | 29 | 16 | 16 |
+|  6  | 30 | 16 | 15 |
+
+Quase em todas as comparações de 16 com 32 de batch size, a de 16 teve um menor número de classificações incorretas e um maior número de classificações desproporcionais, o que indica que ela está classificando mais as imagens porém com um quadrado maior do que o que deveria.
+
+# Referências
+Nesta seção estão os links que foram utilizados neste projeto em algum momento, seja tanto para o desenvolvimento do código quanto a descrição deste relatório.
+- https://www.deeplearningbook.com.br/o-efeito-do-batch-size-no-treinamento-de-redes-neurais-artificiais/
+- https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/
