@@ -45,7 +45,7 @@ A propósito de estudos, vou realizar para 8, 16 e 32 de batch size com 400 épo
 
 Conforme podemos visualizar, o batch size 8 com 400 épocas teve o melhor desempenho, porém é válido ressaltar que a run 8 obteve boas classificações em fotos com mais de 1 gato, que não tinham sido tão boas em nenhuma outra run.
 
-Com as imagens classificadas nas 9 runs feitas, irei realizar uma separação de imagens, na qual as que foram melhor classificadas vão ir para o treinamento e as que não foram tão bem classificadas ou não foram classificadas permanecerão no teste. A descrição melhor dessa escolha estará na parte 2.
+Com as imagens classificadas nas 9 runs feitas, irei realizar uma separação de imagens, na qual as que foram melhor classificadas vão ir para o treinamento e as que não foram tão bem classificadas ou não foram classificadas permanecerão no teste. A descrição melhor dessa escolha estará na parte 2. Para a classificação das imagens, foi utilizado o código no drive [drive comparação](https://drive.google.com/drive/folders/1RhInxIqu5Ndoy3dZuBvxURdFfD59bdrW?usp=sharing), onde possui também a pasta com as comparações da Fase 1 - Parte 1.
 
 # Referências
 Nesta seção estão os links que foram utilizados neste projeto em algum momento, seja tanto para o desenvolvimento do código quanto a descrição deste relatório.
