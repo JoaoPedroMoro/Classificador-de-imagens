@@ -1,11 +1,5 @@
 .dockerignore
 .gitattributes
-runs/train/exp7
-runs/train/exp8
-runs/train/exp9
-runs/detect/exp7
-runs/detect/exp8
-runs/detect/exp9
 
 # Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
 # *.jpg
